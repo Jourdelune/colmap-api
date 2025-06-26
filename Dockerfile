@@ -14,10 +14,15 @@ RUN git clone --recursive https://github.com/Jourdelune/colmap-api.git
 
 WORKDIR /colmap-api
 
+RUN git submodule update --init --recursive
 RUN pip3 install --upgrade pip
 
 RUN pip3 install ./Hierarchical-Localization
 RUN pip3 install .
+
+COPY api.py ./Hierarchical-Localization/api.py
+
+WORKDIR /colmap-api/Hierarchical-Localization
 
 EXPOSE 8000
 
