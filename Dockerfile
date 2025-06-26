@@ -15,11 +15,10 @@ RUN git clone --recursive https://github.com/Jourdelune/colmap-api.git
 WORKDIR /colmap-api
 
 RUN pip3 install --upgrade pip
-RUN git submodule update --init --recursive
 
-# Debug: voir le contenu du répertoire
-# RUN ls -la
-# RUN ls -la Hierarchical-Localization/
+RUN pip3 install ./Hierarchical-Localization
+RUN pip3 install .
 
-# RUN pip3 install ./Hierarchical-Localization
-# RUN pip3 install -r pyproject.toml
+EXPOSE 8000
+
+CMD ["fastapi", "run", "api.py"]
