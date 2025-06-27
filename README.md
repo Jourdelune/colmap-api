@@ -87,7 +87,7 @@ pip install .
 
 3. Run the API:
 ```bash
-cd Hierarchical-Localization
+export PYTHONPATH="./Hierarchical-Localization:$PYTHONPATH"
 fastapi run api.py
 ```
 

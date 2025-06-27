@@ -24,9 +24,8 @@ RUN git submodule update --init --recursive && \
     pip3 install . && \
     pip3 cache purge
 
-COPY api.py ./Hierarchical-Localization/api.py
-
-WORKDIR /colmap-api/Hierarchical-Localization
+ENV PYTHONPATH="/colmap-api/Hierarchical-Localization"
+ENV PYTHONPATH="/colmap-api/Hierarchical-Localization:${PYTHONPATH}"
 
 EXPOSE 8000
 
