@@ -51,16 +51,22 @@ curl -X POST "http://localhost:8000/sfm" \
 
 #### Build the Docker image:
 ```bash
-docker build -t colmap-api .
+docker build -t colmap-api:latest .
+```
+
+#### Or pull the pre-built image from Docker Hub:
+```bash
+docker pull jourdelune876/colmap-api:latest
+docker tag jourdelune876/colmap-api:latest colmap:latest
 ```
 
 #### Run the container:
 ```bash
 # CPU only
-docker run -p 8000:8000 colmap-api
+docker run --ipc=host -p 8000:8000 colmap-api:latest
 
 # With GPU support (requires nvidia-docker)
-docker run -p 8000:8000 --runtime=nvidia colmap-api
+docker run --gpus all --ipc=host -p 8000:8000 colmap:latest
 ```
 
 The API will be available at `http://localhost:8000`
