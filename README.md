@@ -69,7 +69,7 @@ docker run --ipc=host -p 8000:8000 colmap-api:latest
 docker run --gpus all --ipc=host -p 8000:8000 colmap:latest
 ```
 
-The API will be available at `http://localhost:8000`
+The API will be available at `http://localhost:8000` and the docs at `http://localhost:8000/docs`.
 
 ### Local Installation
 

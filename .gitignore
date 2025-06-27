@@ -165,3 +165,4 @@ outputs/
 takeout-1-001
 uv.lock
 .python-version
+test.ipynb
